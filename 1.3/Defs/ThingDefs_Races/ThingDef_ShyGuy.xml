@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<ThingDef ParentName="AnimalThingBase">
+		<defName>O21_ShyGuy</defName>
+		<label>shy guy</label>
+		<description>Fast tiny humanoids, these shy guys have been known to obliterate unprepared colonies with their speed and numbers.</description>
+        <statBases>
+            <PsychicSensitivity>0.5</PsychicSensitivity>
+            <ToxicSensitivity>0</ToxicSensitivity>
+            <Flammability>0</Flammability>
+            <ComfyTemperatureMin>-100</ComfyTemperatureMin>
+            <ComfyTemperatureMax>250</ComfyTemperatureMax>
+            <ArmorRating_Blunt>0.20</ArmorRating_Blunt>
+            <ArmorRating_Sharp>0.40</ArmorRating_Sharp>
+            <ArmorRating_Heat>1.50</ArmorRating_Heat>
+        </statBases>
+        <race>
+            <needsRest>false</needsRest>
+            <hasGenders>false</hasGenders>
+            <foodType>None</foodType>
+			<body>Human</body>
+            <intelligence>ToolUser</intelligence>
+            <thinkTreeMain>Mechanoid</thinkTreeMain>
+            <baseBodySize>0.5</baseBodySize>
+			<baseHealthScale>0.5</baseHealthScale>
+
+            <lifeStageAges>
+                <li>
+                    <def>MechanoidFullyFormed</def>
+                    <minAge>0</minAge>
+                </li>
+            </lifeStageAges>
+
+			<soundMeleeHitPawn>Pawn_Melee_Punch_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_Punch_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_Punch_Miss</soundMeleeMiss>
+        </race>
+        <butcherProducts>
+            <Cloth>10</Cloth>
+            <Steel>5</Steel>
+            <WoodLog>3</WoodLog>
+        </butcherProducts>
+        <receivesSignals>true</receivesSignals>
+		<tools>
+			<li>
+				<label>left fist</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>12.0</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+				<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+			</li>
+			<li>
+				<label>right fist</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>12.0</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+				<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+			</li>
+			<li>
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8.5</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.2</chanceFactor>
+			</li>
+		</tools>
+	</ThingDef>
+
+    <PawnKindDef Name="ShyGuyBase" Abstract="True">
+        <label>shy guy</label>
+        <race>O21_ShyGuy</race>
+        <combatPower>60</combatPower>
+
+        <defaultFactionType>O21_KoopaKorps</defaultFactionType>
+        <aiAvoidCover>true</aiAvoidCover>
+        <destroyGearOnDrop>false</destroyGearOnDrop>
+        
+        <weaponMoney>90~1000</weaponMoney>
+        <weaponTags>
+            <li>NeolithicMeleeBasic</li>
+            <li>NeolithicRangedBasic</li>
+            <li>NeolithicMeleeDecent</li>
+            <li>NeolithicRangedDecent</li>
+            <li>NeolithicMeleeAdvanced</li>
+            <li>NeolithicRangedHeavy</li>
+            <li>MedievalMeleeAdvanced</li>
+        </weaponTags>
+    </PawnKindDef>
+
+    <PawnKindDef ParentName="ShyGuyBase">
+        <defName>O21_ShyGuy_Red</defName>
+        <lifeStages>
+            <li>
+                <bodyGraphicData>
+                    <texPath>Pawn/ShyGuy/shyguy</texPath>
+                    <graphicClass>Graphic_Multi</graphicClass>
+                    <shaderType>CutoutComplex</shaderType>
+                    <drawSize>1.15</drawSize>
+                    <shadowData>
+                        <volume>(0.4, 0.8, 0.4)</volume>
+                    </shadowData>
+                    <color>(201, 49, 46)</color>
+                    <colorTwo>(103, 46, 201)</colorTwo>
+                </bodyGraphicData>
+            </li>
+        </lifeStages>
+    </PawnKindDef>
+
+    <PawnKindDef ParentName="ShyGuyBase">
+        <defName>O21_ShyGuy_Cyan</defName>
+        <lifeStages>
+            <li>
+                <bodyGraphicData>
+                    <texPath>Pawn/ShyGuy/shyguy</texPath>
+                    <graphicClass>Graphic_Multi</graphicClass>
+                    <shaderType>CutoutComplex</shaderType>
+                    <drawSize>1.15</drawSize>
+                    <shadowData>
+                        <volume>(0.4, 0.8, 0.4)</volume>
+                    </shadowData>
+                    <color>(34, 197, 230)</color>
+                    <colorTwo>(230, 34, 34)</colorTwo>
+                </bodyGraphicData>
+            </li>
+        </lifeStages>
+    </PawnKindDef>
+
+    <PawnKindDef ParentName="ShyGuyBase">
+        <defName>O21_ShyGuy_Black</defName>
+        <lifeStages>
+            <li>
+                <bodyGraphicData>
+                    <texPath>Pawn/ShyGuy/shyguy</texPath>
+                    <graphicClass>Graphic_Multi</graphicClass>
+                    <shaderType>CutoutComplex</shaderType>
+                    <drawSize>1.15</drawSize>
+                    <shadowData>
+                        <volume>(0.4, 0.8, 0.4)</volume>
+                    </shadowData>
+                    <color>(66, 66, 66)</color>
+                    <colorTwo>(219, 219, 219)</colorTwo>
+                </bodyGraphicData>
+            </li>
+        </lifeStages>
+    </PawnKindDef>
+
+    <PawnKindDef ParentName="ShyGuyBase">
+        <defName>O21_ShyGuy_Green</defName>
+        <lifeStages>
+            <li>
+                <bodyGraphicData>
+                    <texPath>Pawn/ShyGuy/shyguy</texPath>
+                    <graphicClass>Graphic_Multi</graphicClass>
+                    <shaderType>CutoutComplex</shaderType>
+                    <drawSize>1.15</drawSize>
+                    <shadowData>
+                        <volume>(0.4, 0.8, 0.4)</volume>
+                    </shadowData>
+                    <color>(98, 196, 79)</color>
+                    <colorTwo>(196, 126, 79)</colorTwo>
+                </bodyGraphicData>
+            </li>
+        </lifeStages>
+    </PawnKindDef>
+
+    <PawnKindDef ParentName="ShyGuyBase">
+        <defName>O21_ShyGuy_Yellow</defName>
+        <lifeStages>
+            <li>
+                <bodyGraphicData>
+                    <texPath>Pawn/ShyGuy/shyguy</texPath>
+                    <graphicClass>Graphic_Multi</graphicClass>
+                    <shaderType>CutoutComplex</shaderType>
+                    <drawSize>1.15</drawSize>
+                    <shadowData>
+                        <volume>(0.4, 0.8, 0.4)</volume>
+                    </shadowData>
+                    <color>(232, 223, 95)</color>
+                    <colorTwo>(138, 237, 92)</colorTwo>
+                </bodyGraphicData>
+            </li>
+        </lifeStages>
+    </PawnKindDef>
+
+    <PawnKindDef ParentName="ShyGuyBase">
+        <defName>O21_ShyGuy_Pink</defName>
+        <lifeStages>
+            <li>
+                <bodyGraphicData>
+                    <texPath>Pawn/ShyGuy/shyguy</texPath>
+                    <graphicClass>Graphic_Multi</graphicClass>
+                    <shaderType>CutoutComplex</shaderType>
+                    <drawSize>1.15</drawSize>
+                    <shadowData>
+                        <volume>(0.4, 0.8, 0.4)</volume>
+                    </shadowData>
+                    <color>(235, 129, 129)</color>
+                    <colorTwo>(187, 79, 209)</colorTwo>
+                </bodyGraphicData>
+            </li>
+        </lifeStages>
+    </PawnKindDef>
+
+    <PawnKindDef ParentName="ShyGuyBase">
+        <defName>O21_ShyGuy_Blue</defName>
+        <lifeStages>
+            <li>
+                <bodyGraphicData>
+                    <texPath>Pawn/ShyGuy/shyguy</texPath>
+                    <graphicClass>Graphic_Multi</graphicClass>
+                    <shaderType>CutoutComplex</shaderType>
+                    <drawSize>1.15</drawSize>
+                    <shadowData>
+                        <volume>(0.4, 0.8, 0.4)</volume>
+                    </shadowData>
+                    <color>(81, 85, 201)</color>
+                    <colorTwo>(204, 82, 196)</colorTwo>
+                </bodyGraphicData>
+            </li>
+        </lifeStages>
+    </PawnKindDef>
+
+    <PawnKindDef ParentName="ShyGuyBase">
+        <defName>O21_ShyGuy_Orange</defName>
+        <lifeStages>
+            <li>
+                <bodyGraphicData>
+                    <texPath>Pawn/ShyGuy/shyguy</texPath>
+                    <graphicClass>Graphic_Multi</graphicClass>
+                    <shaderType>CutoutComplex</shaderType>
+                    <drawSize>1.15</drawSize>
+                    <shadowData>
+                        <volume>(0.4, 0.8, 0.4)</volume>
+                    </shadowData>
+                    <color>(242, 156, 58)</color>
+                    <colorTwo>(66, 186, 219)</colorTwo>
+                </bodyGraphicData>
+            </li>
+        </lifeStages>
+    </PawnKindDef>
+
+</Defs>

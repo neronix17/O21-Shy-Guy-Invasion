@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<ThingDef ParentName="AnimalThingBase">
+		<defName>O21_Koopa</defName>
+		<label>koopa</label>
+		<description>Slow bipedal turtles, they make up for it in their ability to throw hammers with great precision and strength.</description>
+        <statBases>
+            <PsychicSensitivity>0.5</PsychicSensitivity>
+            <ToxicSensitivity>0</ToxicSensitivity>
+            <Flammability>0</Flammability>
+            <ComfyTemperatureMin>-100</ComfyTemperatureMin>
+            <ComfyTemperatureMax>250</ComfyTemperatureMax>
+            <ArmorRating_Blunt>0.40</ArmorRating_Blunt>
+            <ArmorRating_Sharp>0.60</ArmorRating_Sharp>
+            <ArmorRating_Heat>1.2</ArmorRating_Heat>
+        </statBases>
+        <race>
+            <needsRest>false</needsRest>
+            <hasGenders>false</hasGenders>
+            <foodType>None</foodType>
+			<body>Human</body>
+            <intelligence>ToolUser</intelligence>
+            <thinkTreeMain>Mechanoid</thinkTreeMain>
+            <baseBodySize>1.0</baseBodySize>
+			<baseHealthScale>1.0</baseHealthScale>
+
+            <lifeStageAges>
+                <li>
+                    <def>MechanoidFullyFormed</def>
+                    <minAge>0</minAge>
+                </li>
+            </lifeStageAges>
+
+			<soundMeleeHitPawn>Pawn_Melee_Punch_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_Punch_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_Punch_Miss</soundMeleeMiss>
+        </race>
+        <butcherProducts>
+            <Cloth>3</Cloth>
+            <Steel>10</Steel>
+            <WoodLog>5</WoodLog>
+        </butcherProducts>
+        <receivesSignals>true</receivesSignals>
+		<tools>
+			<li>
+				<label>left fist</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>14.0</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>LeftHand</linkedBodyPartsGroup>
+				<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+			</li>
+			<li>
+				<label>right fist</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>14.0</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>RightHand</linkedBodyPartsGroup>
+				<alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+			</li>
+			<li>
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.2</chanceFactor>
+			</li>
+		</tools>
+	</ThingDef>
+
+    <PawnKindDef Name="KoopaBase" Abstract="True">
+        <race>O21_Koopa</race>
+        <combatPower>120</combatPower>
+
+        <defaultFactionType>O21_KoopaKorps</defaultFactionType>
+        <aiAvoidCover>true</aiAvoidCover>
+        <destroyGearOnDrop>true</destroyGearOnDrop>
+        
+        <weaponMoney>90~1000</weaponMoney>
+    </PawnKindDef>
+
+    <PawnKindDef ParentName="KoopaBase">
+        <defName>O21_Koopa_FireBro</defName>
+        <label>fire bro</label>
+        <weaponTags>
+            <li>FireBro</li>
+        </weaponTags>
+        <lifeStages>
+            <li>
+                <bodyGraphicData>
+                    <texPath>Pawn/HammerBro/hammerbro</texPath>
+                    <graphicClass>Graphic_Multi</graphicClass>
+                    <shaderType>CutoutComplex</shaderType>
+                    <drawSize>1.5</drawSize>
+                    <shadowData>
+                        <volume>(0.4, 0.8, 0.4)</volume>
+                    </shadowData>
+                    <color>(224, 85, 85)</color>
+                </bodyGraphicData>
+            </li>
+        </lifeStages>
+    </PawnKindDef>
+
+    <PawnKindDef ParentName="KoopaBase">
+        <defName>O21_Koopa_BoomarangBro</defName>
+        <label>boomarang bro</label>
+        <weaponTags>
+            <li>BoomerangBro</li>
+        </weaponTags>
+        <lifeStages>
+            <li>
+                <bodyGraphicData>
+                    <texPath>Pawn/HammerBro/hammerbro</texPath>
+                    <graphicClass>Graphic_Multi</graphicClass>
+                    <shaderType>CutoutComplex</shaderType>
+                    <drawSize>1.5</drawSize>
+                    <shadowData>
+                        <volume>(0.4, 0.8, 0.4)</volume>
+                    </shadowData>
+                    <color>(85, 164, 224)</color>
+                </bodyGraphicData>
+            </li>
+        </lifeStages>
+    </PawnKindDef>
+
+    <PawnKindDef ParentName="KoopaBase">
+        <defName>O21_Koopa_HammerBro</defName>
+        <label>hammer bro</label>
+        <weaponTags>
+            <li>HammerBro</li>
+        </weaponTags>
+        <lifeStages>
+            <li>
+                <bodyGraphicData>
+                    <texPath>Pawn/HammerBro/hammerbro</texPath>
+                    <graphicClass>Graphic_Multi</graphicClass>
+                    <shaderType>CutoutComplex</shaderType>
+                    <drawSize>1.5</drawSize>
+                    <shadowData>
+                        <volume>(0.4, 0.8, 0.4)</volume>
+                    </shadowData>
+                    <color>(85, 224, 106)</color>
+                </bodyGraphicData>
+            </li>
+        </lifeStages>
+    </PawnKindDef>
+
+</Defs>
